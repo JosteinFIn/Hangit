@@ -34,6 +34,11 @@ namespace Hangit.App
 						Console.ForegroundColor = ConsoleColor.Green;
 						Console.WriteLine("Correct");
 						Console.ResetColor();
+
+						if(!guesses.Contains(input.ToUpper()))
+						{
+							guesses += input.ToUpper() + "  ";
+						}
 					}
 					else
 					{
@@ -49,10 +54,10 @@ namespace Hangit.App
 					guessesLeft--;
 				}
 
-				if (!guesses.Contains(input.ToUpper()))
-				{
-					guesses += input.ToUpper() + "  ";
-				}
+				//if (!guesses.Contains(input.ToUpper()))
+				//{
+					//guesses += input.ToUpper() + "  ";
+				//}
 
 				//Console.WriteLine("GAme OvEr!");
 			}
