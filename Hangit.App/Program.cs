@@ -16,7 +16,7 @@ namespace Hangit.App
 
 			Console.WriteLine("GAme OvEr!");
 
-			static bool IsValid(string input) => Regex.IsMatch(input, @"^[A-ZÆØÅ]$");
 		}
+		static bool IsValid(string input) => Regex.IsMatch(input, @"^[A-ZÆØÅ]$");
 	}
 }
