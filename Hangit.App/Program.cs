@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Hangit.App
 {
@@ -8,9 +9,13 @@ namespace Hangit.App
 		{
 			Console.Write("Your guess: ");
 			string input = Console.ReadLine();
-			Console.WriteLine("You guessed: " + input);
-			Console.WriteLine("GAme OvEr!");
 
+			Regex regex = new Regex(@"^[A-ZÆØÅ]$");
+
+			if (regex.IsMatch(input.ToUpper())){ Console.WriteLine("You guessed: " + input); }
+			else { Console.WriteLine("Invalid guess"); }
+
+			Console.WriteLine("GAme OvEr!");
 		}
 	}
 }
