@@ -20,7 +20,10 @@ namespace Hangit.App
 				if (IsValid(input.ToUpper()))
 				{
 					if (secretWord.Contains(input.ToUpper()))
-						Console.WriteLine("Correct"); 
+					{
+						Console.WriteLine("Correct");
+						guessesLeft++;
+					}
 					else 
 						Console.WriteLine("Wrong");
 				}
