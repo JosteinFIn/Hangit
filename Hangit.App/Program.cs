@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
@@ -11,29 +12,56 @@ namespace Hangit.App
 			int guessesLeft = 10;
 			while(true)
 			{
-				guessesLeft--;
 				string secretWord = "GODFATHER";
+				Console.WriteLine("\nGuesses left: "+ guessesLeft);
 
 				Console.Write("Your guess: ");
 				string input = Console.ReadLine();
+
+				if(guessesLeft == 1)
+				{
+					Console.WriteLine("Game Over");
+					break;
+				}
 
 				if (IsValid(input.ToUpper()))
 				{
 					if (secretWord.Contains(input.ToUpper()))
 					{
+						Console.ForegroundColor = ConsoleColor.Green;
 						Console.WriteLine("Correct");
-						guessesLeft++;
+						Console.ResetColor();
 					}
-					else 
+					else
+					{
+						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Wrong");
+						Console.ResetColor();
+						guessesLeft--;
+					}
 				}
-				else { Console.WriteLine("Invalid guess"); }
-
-				Console.WriteLine("Guesses left: "+ guessesLeft);
+				else 
+				{ 
+					Console.WriteLine("Invalid guess");
+					guessesLeft--;
+				}
 
 				//Console.WriteLine("GAme OvEr!");
 			}
 		}
 		static bool IsValid(string input) => Regex.IsMatch(input, @"^[A-ZÆØÅ]$");
+		/*
+		static string ToColors(string input)
+		{
+			Random random = new Random();
+			random.Next(0, 16);
+			char[] c = input.ToCharArray();
+			foreach (var letter in c)
+			{
+				string s = Enum.Parse(ConsoleColor.Red);
+				random.Next(0, 16);
+				Console.
+			}
+		}*/
 	}
 }
