@@ -6,9 +6,10 @@ namespace Hangit.App
 	{
 		static void Main(string[] args)
 		{
-
-			Console.WriteLine("giiiiit!");
-
+			Console.Write("Your guess: ");
+			string input = Console.ReadLine();
+			Console.WriteLine("You guessed: " + input);
+			Console.WriteLine("GAme OvEr!");
 
 		}
 	}
