@@ -10,10 +10,13 @@ namespace Hangit.App
 		static void Main(string[] args)
 		{
 			int guessesLeft = 10;
+			string guesses = "";
 			while(true)
 			{
 				string secretWord = "GODFATHER";
-				Console.WriteLine("\nGuesses left: "+ guessesLeft);
+
+				Console.WriteLine("\n"+guesses);
+				Console.WriteLine("Guesses left: "+ guessesLeft);
 
 				Console.Write("Your guess: ");
 				string input = Console.ReadLine();
@@ -46,6 +49,11 @@ namespace Hangit.App
 					guessesLeft--;
 				}
 
+				if (!guesses.Contains(input.ToUpper()))
+				{
+					guesses += input.ToUpper() + "  ";
+				}
+
 				//Console.WriteLine("GAme OvEr!");
 			}
 		}
@@ -55,13 +63,13 @@ namespace Hangit.App
 		{
 			Random random = new Random();
 			random.Next(0, 16);
-			char[] c = input.ToCharArray();
-			foreach (var letter in c)
-			{
-				string s = Enum.Parse(ConsoleColor.Red);
-				random.Next(0, 16);
-				Console.
-			}
+			//char[] c = input.ToCharArray();
+			int p = Enum.Parse(ConsoleColor, "Red");
+			//foreach (var letter in c)
+			//{
+				//random.Next(0, 16);
+				//Console.
+			//}
 		}*/
 	}
 }
