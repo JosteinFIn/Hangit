@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangit.App", "Hangit.App\Hangit.App.csproj", "{0869701D-BF30-41D4-AFAC-048CC597763A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0869701D-BF30-41D4-AFAC-048CC597763A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0869701D-BF30-41D4-AFAC-048CC597763A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0869701D-BF30-41D4-AFAC-048CC597763A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0869701D-BF30-41D4-AFAC-048CC597763A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D80FB1B-01C7-447C-86B3-F72800CAB2EB}
+	EndGlobalSection
+EndGlobal
