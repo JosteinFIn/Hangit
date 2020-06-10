@@ -6,7 +6,9 @@ namespace Hangit.App
 	{
 		static void Main(string[] args)
 		{
+
 			Console.WriteLine("GIIIIIIIIT!");
+
 
 		}
 	}
