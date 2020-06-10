@@ -8,22 +8,25 @@ namespace Hangit.App
 	{
 		static void Main(string[] args)
 		{
+			int guessesLeft = 10;
 			while(true)
 			{
+				guessesLeft--;
 				string secretWord = "GODFATHER";
 
 				Console.Write("Your guess: ");
 				string input = Console.ReadLine();
-				
-				if (IsValid(input.ToUpper()) && secretWord.Contains(input.ToUpper()))
-				{ 
-					Console.WriteLine("Correct"); 
-				}
-				else if (IsValid(input.ToUpper()) && !secretWord.Contains(input))
+
+				if (IsValid(input.ToUpper()))
 				{
-					Console.WriteLine("Wrong");
+					if (secretWord.Contains(input.ToUpper()))
+						Console.WriteLine("Correct"); 
+					else 
+						Console.WriteLine("Wrong");
 				}
 				else { Console.WriteLine("Invalid guess"); }
+
+				Console.WriteLine("Guesses left: "+ guessesLeft);
 
 				//Console.WriteLine("GAme OvEr!");
 			}
