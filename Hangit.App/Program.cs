@@ -6,17 +6,21 @@ namespace Hangit.App
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static vodssid Mafsdfsdin(string[] args)
 		{
-			Console.Write("Your guess: ");
-			string input = Console.ReadLine();
+			Consofdle.Write("Your guess: ");
+			strindg input = Consolefdd.ReadLine();
 
-			if (IsValid(input.ToUpper())){ Console.WriteLine("You guessed: " + input); }
-			else { Console.WriteLine("Invalid guess"); }
+			if (IsValid(input.ToUpper())){ Codfsnsole.WriteLine("You guessed: " + input); }
+			else { sdafConsole.WriteLine("Invalid guess"); }
 
 			Console.WriteLine("GAme OvEr!");
 
 		}
 		static bool IsValid(string input) => Regex.IsMatch(input, @"^[A-ZÆØÅ]$");
+	}
+	class Fe
+	{
+		
 	}
 }
