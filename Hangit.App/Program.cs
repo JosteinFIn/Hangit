@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
 namespace Hangit.App
@@ -10,12 +11,12 @@ namespace Hangit.App
 			Console.Write("Your guess: ");
 			string input = Console.ReadLine();
 
-			Regex regex = new Regex(@"^[A-ZÆØÅ]$");
-
-			if (regex.IsMatch(input.ToUpper())){ Console.WriteLine("You guessed: " + input); }
+			if (IsValid(input.ToUpper())){ Console.WriteLine("You guessed: " + input); }
 			else { Console.WriteLine("Invalid guess"); }
 
 			Console.WriteLine("GAme OvEr!");
+
+			static bool IsValid(string input) => Regex.IsMatch(input, @"^[A-ZÆØÅ]$");
 		}
 	}
 }
