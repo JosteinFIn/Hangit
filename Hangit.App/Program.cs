@@ -50,6 +50,7 @@ namespace Hangit.App
 					else
 					{
 						ErrorLine("WRONG");
+						guesses += input.ToUpper() + "  ";
 						guessesLeft--;
 					}
 				}
