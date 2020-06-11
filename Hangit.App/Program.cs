@@ -11,7 +11,7 @@ namespace Hangit.App
 		static void Main(string[] args)
 		{
 			Console.Title = "Hangman game";
-			int guessesLeft = 10;
+			int guessesLeft = 1;
 			string guesses = "";
 			string secretWord = "GODFATHER";
 			//string maskedWord = new String('-', secretWord.Length);
@@ -35,8 +35,20 @@ namespace Hangit.App
 
 				if (guessesLeft == 1)
 				{
-					ErrorLine("Game Over");
+					Console.Clear();
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine(@"  _____ ");
+					Console.WriteLine(@" / ____|");
+					Console.WriteLine(@"| |  __  __ _ _ __ ___   ___    _____   _____ _ __");
+					Console.WriteLine(@"| | |_ |/ _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__|");
+					Console.WriteLine(@"| |__| | (_| | | | | | |  __/ | (_) \ V /  __/ | ");   
+                    Console.WriteLine(@" \_____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|");
+					Console.ResetColor();
+
+
+					//ErrorLine("Game Over");
 					break;
+
 				}
 
 				if (IsValid(input.ToUpper()))
@@ -60,7 +72,9 @@ namespace Hangit.App
 				}
 				if (AllLettersGuessCorrect(secretWord, guesses))
 				{
-					ToColors("-*-*-*-*-*-*-*-*-*-*-YOU WIN!-*-*-*-*-*-*-**-");
+
+
+					//ToColors("-*-*-*-*-*-*-*-*-*-*-YOU WIN!-*-*-*-*-*-*-**-");
 					Console.ReadKey();
 					//break;
 				}
