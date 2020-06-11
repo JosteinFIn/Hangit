@@ -12,7 +12,7 @@ namespace Hangit.App
 		static void Main(string[] args)
 		{
 			Console.Title = "Hangman game";
-			int guessesLeft = 10;
+			int guessesLeft = 5;
 			string guesses = "";
 			string secretWord = "GODFATHER";
 			//string maskedWord = new String('-', secretWord.Length);
@@ -24,7 +24,7 @@ namespace Hangit.App
 				InfoLine("\n" + guesses);
 				InfoLine("Guesses left: " + guessesLeft);
 				InfoLine("Your guess: ");
-				string input = Console.ReadLine();
+				string input = Console.ReadKey().KeyChar.ToString();
 
 
 				if (guesses.Contains(input.ToUpper()))
@@ -43,7 +43,7 @@ namespace Hangit.App
 					ToColors(@"| |  __  __ _ _ __ ___   ___    _____   _____ _ __");
 					ToColors(@"| | |_ |/ _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__|");
 					ToColors(@"| |__| | (_| | | | | | |  __/ | (_) \ V /  __/ | ");   
-                    ToColors(@" \_____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|");
+					ToColors(@" \_____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|");
 					Console.ResetColor();
 
 
@@ -56,31 +56,31 @@ namespace Hangit.App
 				{
 					if (secretWord.Contains(input.ToUpper()))
 					{
-						SuccessLine("CORRECT!");
+						SuccessLine("\nCORRECT!");
 						guesses += input.ToUpper() + "  ";
 
 					}
 					else
 					{
-						ErrorLine("WRONG");
+						ErrorLine("\nWRONG");
 						guesses += input.ToUpper() + "  ";
 						guessesLeft--;
 					}
 				}
 				else
 				{
-					InfoLine("Invalid guess");
+					InfoLine("\nInvalid guess");
 				}
 				if (AllLettersGuessCorrect(secretWord, guesses))
 				{
 					Console.Clear();
 					Console.ForegroundColor = ConsoleColor.Green;
-					Console.WriteLine(@" __     __                    _");
-			        Console.WriteLine(@" \ \   / /                   (_) ");
-					Console.WriteLine(@"  \ \_/ /__  _   _  __      ___ _ __");
-					Console.WriteLine(@"   \   / _ \| | | | \ \ /\ / / | '_  \ ");
-					Console.WriteLine(@"    | | (_) | |_| |  \ V  V /| | | | |");
-					Console.WriteLine(@"    |_|\___/ \__,_|   \_/\_/ |_|_| |_|");
+					ToColors(@" __     __                    _");
+					ToColors(@" \ \   / /                   (_) ");
+					ToColors(@"  \ \_/ /__  _   _  __      ___ _ __");
+					ToColors(@"   \   / _ \| | | | \ \ /\ / / | '_  \ ");
+					ToColors(@"    | | (_) | |_| |  \ V  V /| | | | |");
+					ToColors(@"    |_|\___/ \__,_|   \_/\_/ |_|_| |_|");
 					Console.ResetColor();                 
 					
 
