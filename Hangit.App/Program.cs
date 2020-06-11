@@ -11,24 +11,23 @@ namespace Hangit.App
 		{
 			int guessesLeft = 10;
 			string guesses = "";
-			string secretWord = "GODFATHER";
-			string maskedWord = new String('-', secretWord.Length);
+			string secretWord = "GO";
+			//string maskedWord = new String('-', secretWord.Length);
 
 			while(true)
 			{
-				Console.Clear();
 				Console.WriteLine("\n"+MaskedSecretWord(secretWord, guesses));
 				Console.WriteLine("\n"+guesses);
 				Console.WriteLine("Guesses left: "+ guessesLeft);
 				Console.Write("Your guess: ");
 				string input = Console.ReadLine();
 
+
 				if (guesses.Contains(input.ToUpper()))
 				{
 					Console.WriteLine("\nYou have allready guessed " + input.ToUpper());
 					continue;
 				}
-
 
 				if (guessesLeft == 1)
 				{
@@ -60,7 +59,18 @@ namespace Hangit.App
 					Console.WriteLine("Invalid guess");
 					guessesLeft--;
 				}
+				if(AllLettersGuessCorrect(secretWord, guesses))
+				{
+					ToColors("-*-*-*-*-*-*-*-*-*-*-YOU WIN!-*-*-*-*-*-*-**-");
+					Console.ReadKey();
+					//break;
+				}
 			}
+		}
+
+		private static bool AllLettersGuessCorrect(string secretWord, string guesses)
+		{
+			return MaskedSecretWord(secretWord, guesses) == secretWord;
 		}
 
 		private static string MaskedSecretWord(string secretWord, string guesses)
