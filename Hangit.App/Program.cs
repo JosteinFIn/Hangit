@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Hangit.App
 {
@@ -37,12 +38,12 @@ namespace Hangit.App
 				{
 					Console.Clear();
 					Console.ForegroundColor = ConsoleColor.Red;
-					Console.WriteLine(@"  _____ ");
-					Console.WriteLine(@" / ____|");
-					Console.WriteLine(@"| |  __  __ _ _ __ ___   ___    _____   _____ _ __");
-					Console.WriteLine(@"| | |_ |/ _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__|");
-					Console.WriteLine(@"| |__| | (_| | | | | | |  __/ | (_) \ V /  __/ | ");   
-                    Console.WriteLine(@" \_____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|");
+					ToColors(@"  _____ ");
+					ToColors(@" / ____|");
+					ToColors(@"| |  __  __ _ _ __ ___   ___    _____   _____ _ __");
+					ToColors(@"| | |_ |/ _` | '_ ` _ \ / _ \  / _ \ \ / / _ \ '__|");
+					ToColors(@"| |__| | (_| | | | | | |  __/ | (_) \ V /  __/ | ");   
+                    ToColors(@" \_____|\__,_|_| |_| |_|\___|  \___/ \_/ \___|_|");
 					Console.ResetColor();
 
 
@@ -148,6 +149,7 @@ namespace Hangit.App
 		//TEST//
 		static void ToColors(string input)
 		{
+			Thread.Sleep(300);
 			//string s = "";
 			Random random = new Random();
 			char[] c = input.ToCharArray();
@@ -159,7 +161,7 @@ namespace Hangit.App
 				Console.Write(letter);
 				Console.ResetColor();
 			}
-			Console.WriteLine("\n");
+			Console.Write("\n");
 		}
 	}
 }
