@@ -7,8 +7,10 @@ namespace Hangit.App
 {
 	class Program
 	{
+		
 		static void Main(string[] args)
 		{
+			Console.Title = "Hangman game";
 			int guessesLeft = 10;
 			string guesses = "";
 			string secretWord = "GODFATHER";
