@@ -11,27 +11,29 @@ namespace Hangit.App
 		{
 			int guessesLeft = 10;
 			string guesses = "";
-			string secretWord = "GO";
+			string secretWord = "GODFATHER";
 			//string maskedWord = new String('-', secretWord.Length);
 
-			while(true)
+			while (true)
 			{
-				Console.WriteLine("\n"+MaskedSecretWord(secretWord, guesses));
-				Console.WriteLine("\n"+guesses);
-				Console.WriteLine("Guesses left: "+ guessesLeft);
-				Console.Write("Your guess: ");
+				Console.Clear();
+				InfoLine("\n" + MaskedSecretWord2(secretWord, guesses));
+				InfoLine("\n" + guesses);
+				InfoLine("Guesses left: " + guessesLeft);
+				InfoLine("Your guess: ");
 				string input = Console.ReadLine();
 
 
 				if (guesses.Contains(input.ToUpper()))
 				{
-					Console.WriteLine("\nYou have allready guessed " + input.ToUpper());
+					InfoLine("\nYou have allready guessed " + input.ToUpper());
+					Console.ReadKey();
 					continue;
 				}
 
 				if (guessesLeft == 1)
 				{
-					Console.WriteLine("Game Over");
+					ErrorLine("Game Over");
 					break;
 				}
 
@@ -39,38 +41,50 @@ namespace Hangit.App
 				{
 					if (secretWord.Contains(input.ToUpper()))
 					{
-						Console.ForegroundColor = ConsoleColor.Green;
-						Console.WriteLine("Correct");
-						Console.ResetColor();
+						SuccessLine("CORRECT!");
 						guesses += input.ToUpper() + "  ";
 
 					}
 					else
 					{
-						Console.ForegroundColor = ConsoleColor.Red;
-						Console.WriteLine("Wrong");
-						Console.ResetColor();
-						//guesses += input.ToUpper() + "  ";
+						ErrorLine("WRONG");
 						guessesLeft--;
 					}
 				}
-				else 
-				{ 
-					Console.WriteLine("Invalid guess");
-					guessesLeft--;
+				else
+				{
+					InfoLine("Invalid guess");
 				}
-				if(AllLettersGuessCorrect(secretWord, guesses))
+				if (AllLettersGuessCorrect(secretWord, guesses))
 				{
 					ToColors("-*-*-*-*-*-*-*-*-*-*-YOU WIN!-*-*-*-*-*-*-**-");
 					Console.ReadKey();
 					//break;
 				}
+				Console.ReadKey();
 			}
 		}
-
 		private static bool AllLettersGuessCorrect(string secretWord, string guesses)
 		{
-			return MaskedSecretWord(secretWord, guesses) == secretWord;
+			return MaskedSecretWord2(secretWord, guesses) == secretWord;
+		}
+
+		private static void InfoLine(string message)
+		{
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine(message);
+		}
+
+		private static void SuccessLine(string message)
+		{
+			Console.ForegroundColor = ConsoleColor.Green;
+			Console.WriteLine(message);
+		}
+
+		private static void ErrorLine(string message)
+		{
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.WriteLine(message);
 		}
 
 		private static string MaskedSecretWord(string secretWord, string guesses)
@@ -89,10 +103,22 @@ namespace Hangit.App
 			}
 			return validate;
 		}
+		private static string MaskedSecretWord2(string secretWord, string guesses)
+		{
+			string validate = "";
+			foreach (char letter in secretWord)
+			{
+				if (guesses.Contains(letter))
+					validate += letter;
+				else
+					validate += '-';
+			}
+			return validate;
+		}
 
 		private static bool LetterExistInSecretword(char letter, char[] guessesLetters)
 		{
-			foreach(var guessLetter in guessesLetters)
+			foreach (var guessLetter in guessesLetters)
 			{
 				if (guessLetter == letter)
 					return true;
